@@ -82,14 +82,14 @@ async function updateCandidate(
                 return {
                     status: 400,
                     data: {
-                        status: true,
+                        status: false,
                         message: "The number of votes of each candidate is 20",
                     },
                 };
             }
         } else {
             return {
-                status: 400,
+                status: 404,
                 data: {
                     status: false,
                     message: "The candidate does not exist.",

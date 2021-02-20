@@ -8,9 +8,9 @@ import {
 const router = express.Router();
 
 router
-    .get("/user/:id", getCandidate)
-    .get("/users", getCandidates)
-    .post("/createCandidates", createCandidateList)
-    .put("/user/setVote", setVote);
+    .get("/cantidate/:id", getCandidate)
+    .get("/cantidates", getCandidates)
+    .post("/cantidate/createCandidates", createCandidateList)
+    .put("/cantidate/setVote", setVote);
 
 export default router;
