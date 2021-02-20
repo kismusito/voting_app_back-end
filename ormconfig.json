@@ -1,0 +1,10 @@
+{
+    "type": "sqlite",
+    "host": "localhost",
+    "username": "root",
+    "password": "",
+    "port": 3306,
+    "database": "voting_app",
+    "entities": ["dist/entity/**/*.js"],
+    "synchronize": true
+}
