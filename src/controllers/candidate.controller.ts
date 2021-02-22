@@ -113,9 +113,12 @@ export const setVote = async (
 ): Promise<Response> => {
     const { candidateID, symbol } = req.body;
     if (candidateID && symbol) {
+        // This way to evaluate if is more or less votes if to simplyfi and no create more endpoints
         const totalVotes = symbol === "+" ? 1 : -1;
+
         const candidateUpdated = await updateCandidate(candidateID, totalVotes);
 
+        // Candidate updated return the status and data for return to user
         return res.status(candidateUpdated.status).json(candidateUpdated.data);
     } else {
         return res.status(400).json({
@@ -130,6 +133,7 @@ export const createCandidateList = async (
     res: Response
 ): Promise<Response> => {
     try {
+        // This functipo create candidades
         await createCandidates(20);
 
         return res.status(200).json({

@@ -50,6 +50,7 @@ export async function clearEntities() {
  */
 export async function createCandidates(n: number = 20) {
     try {
+        // Clear all records on candidades table
         clearEntities();
         for (let i = 0; i < n; i++) {
             let candidateFake = createCandidate();
