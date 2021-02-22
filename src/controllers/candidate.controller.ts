@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
 import { getRepository } from "typeorm";
-import { Candidate } from "../entity/Candiadte";
+import { Candidate } from "../entity/Candidate";
 
 // Only discomment this for create all candidates, also discomment line
 import { createCandidates } from "../helpers/createCandidates";
@@ -71,7 +71,7 @@ async function updateCandidate(
                     candidate
                 );
                 return {
-                    status: 400,
+                    status: 200,
                     data: {
                         status: true,
                         message: "Candidate updated successfully.",
@@ -80,7 +80,7 @@ async function updateCandidate(
                 };
             } else {
                 return {
-                    status: 400,
+                    status: 200,
                     data: {
                         status: false,
                         message: "The number of votes of each candidate is 20",

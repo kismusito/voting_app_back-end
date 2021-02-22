@@ -1,6 +1,6 @@
 import faker from "faker";
 import { getConnection, getRepository } from "typeorm";
-import { Candidate } from "../entity/Candiadte";
+import { Candidate } from "../entity/Candidate";
 
 type CandidateInterface = {
     firstname: string;
@@ -8,6 +8,7 @@ type CandidateInterface = {
     slogan: string;
     age: number;
     votes: number;
+    photoURL: string;
     update_at: string;
     create_at: string;
 };
@@ -16,11 +17,12 @@ const createCandidate = (): CandidateInterface => {
     return {
         firstname: faker.name.firstName(),
         lastname: faker.name.lastName(),
-        slogan: faker.lorem.paragraph(),
+        slogan: faker.lorem.words(30),
         age: faker.random.number({
             min: 18,
             max: 80,
         }),
+        photoURL: `${faker.image.people()}?random=${Date.now()}`,
         votes: faker.random.number({
             min: 0,
             max: 10,
@@ -54,8 +56,6 @@ export async function createCandidates(n: number = 20) {
             const candidate = getRepository(Candidate).create(candidateFake);
             await getRepository(Candidate).save(candidate);
         }
-
-        console.log("Candidates created successfully");
     } catch (error) {
         console.log(error);
     }

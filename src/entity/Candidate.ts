@@ -12,6 +12,9 @@ export class Candidate {
     lastname: string;
 
     @Column()
+    photoURL: string;
+
+    @Column()
     slogan: string;
 
     @Column()
